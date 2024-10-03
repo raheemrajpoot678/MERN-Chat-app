@@ -16,15 +16,9 @@ configDotenv();
 
 const __dirname = path.resolve();
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: ["https://mern-chat-app-frontend-fawn.vercel.app"], // Allow only your frontend
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,  // Allow credentials (cookies, authorization headers)
-  })
-);
 
 app.use("/api/auth", authRouter);
 app.use("/api/messages", messagesRouter);
