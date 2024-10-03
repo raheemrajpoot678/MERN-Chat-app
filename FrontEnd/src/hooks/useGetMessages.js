@@ -11,7 +11,9 @@ export default function useGetMessages() {
     async function getMessages() {
       setLoading(true);
       try {
-        const res = await fetch(`/api/messages/${selectedConversation._id}`);
+        const res = await fetch(
+          `https://mern-chat-app-api-zeta.vercel.app/api/messages/${selectedConversation._id}`
+        );
         const data = await res.json();
         setMessages(data);
       } catch (error) {

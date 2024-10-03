@@ -11,12 +11,15 @@ export default function useLogout() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/auth/logout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://mern-chat-app-api-zeta.vercel.app/api/auth/logout",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await res.json();
 
       if (data.status === "fail") throw new Error(data.message);

@@ -7,7 +7,9 @@ export default function () {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/users");
+        const res = await fetch(
+          "https://mern-chat-app-api-zeta.vercel.app/api/users"
+        );
         const data = await res.json();
         setConversations(data);
       } catch (error) {
