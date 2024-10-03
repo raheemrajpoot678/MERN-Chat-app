@@ -2,5 +2,10 @@
   "version": 2,
   "name": "native-server",
   "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/server.js" }]
+  "routes": [{ "src": "/(.*)", "dest": "/server.js" }],
+   "functions": {
+    "api/**/*.js": {
+      "maxDuration": 60 // Set the timeout to 60 seconds
+    }
+  }
 }
