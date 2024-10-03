@@ -8,7 +8,7 @@ export default function () {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://mern-chat-app-api-v2.vercel.app/api/users",
+          "https://mern-chat-app-api-ten.vercel.app/api/users",
           {
             method: "GET",
             headers: {

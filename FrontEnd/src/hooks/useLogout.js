@@ -12,7 +12,7 @@ export default function useLogout() {
 
     try {
       const res = await fetch(
-        "https://mern-chat-app-api-v2.vercel.app/api/auth/logout",
+        "https://mern-chat-app-api-ten.vercel.app/api/auth/logout",
         {
           method: "POST",
           credentials: "include",

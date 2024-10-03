@@ -20,7 +20,7 @@ export default function useSignup() {
     // sign in logic goes here
     try {
       const res = await fetch(
-        "https://mern-chat-app-api-v2.vercel.app/api/auth/signup",
+        "https://mern-chat-app-api-ten.vercel.app/api/auth/signup",
         {
           method: "POST",
           credentials: "include",
