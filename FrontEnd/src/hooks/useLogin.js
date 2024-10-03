@@ -17,6 +17,7 @@ export default function useLogin() {
         "https://mern-chat-app-api-zeta.vercel.app/api/auth/login",
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

@@ -15,6 +15,7 @@ export default function useLogout() {
         "https://mern-chat-app-api-zeta.vercel.app/api/auth/logout",
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

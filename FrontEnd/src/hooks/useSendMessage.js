@@ -16,6 +16,7 @@ export default function useSendMessage() {
         `https://mern-chat-app-api-zeta.vercel.app/api/messages/send/${selectedConversation?._id}`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

@@ -23,6 +23,7 @@ export default function useSignup() {
         "https://mern-chat-app-api-zeta.vercel.app/api/auth/signup",
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

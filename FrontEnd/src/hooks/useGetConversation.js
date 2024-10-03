@@ -8,7 +8,15 @@ export default function () {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://mern-chat-app-api-zeta.vercel.app/api/users"
+          "https://mern-chat-app-api-zeta.vercel.app/api/users",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            credentials: "include",
+          }
         );
         const data = await res.json();
         setConversations(data);
