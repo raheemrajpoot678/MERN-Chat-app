@@ -5,7 +5,7 @@
   "routes": [{ "src": "/(.*)", "dest": "/server.js" }],
    "functions": {
     "api/**/*.js": {
-      "maxDuration": 60 // Set the timeout to 60 seconds
+      "maxDuration": 60 
     }
   }
 }
