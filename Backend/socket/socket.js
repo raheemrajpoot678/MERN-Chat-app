@@ -6,10 +6,11 @@ const app = expess();
 const server = createServer(app);
 
 const io = new Server(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-  },
+  cors:{
+    origin: ["https://mern-chat-app-frontend-fawn.vercel.app"], // Allow only your frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,  // Allow credentials (cookies, authorization headers)
+  }
 });
 
 let userScoketMap = {};
