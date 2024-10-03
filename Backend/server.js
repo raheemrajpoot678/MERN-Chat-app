@@ -3,11 +3,7 @@ import { configDotenv } from "dotenv";
 import path from "path";
 import "colors";
 import cookieParser from "cookie-parser";
-<<<<<<< HEAD
-=======
-// Remove the cors import
->>>>>>> 9211abdd63e8cc4277920ce69637e49cfabb01d7
-// import cors from "cors";
+
 
 import authRouter from "./routes/auth.routes.js";
 import messagesRouter from "./routes/message.routes.js";
@@ -20,7 +16,7 @@ configDotenv();
 
 const __dirname = path.resolve();
 
-<<<<<<< HEAD
+
 app.use(express.json());
 app.use(cookieParser());
 // app.use(
@@ -30,7 +26,7 @@ app.use(cookieParser());
 //     credentials: true, // Allow credentials (cookies, authorization headers)
 //   })
 // );
-=======
+
 app.use(
   cors({
     origin: "*", // Allow all origins
@@ -40,7 +36,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
->>>>>>> 9211abdd63e8cc4277920ce69637e49cfabb01d7
+
 
 // Set up routes
 app.use("/api/auth", authRouter);
