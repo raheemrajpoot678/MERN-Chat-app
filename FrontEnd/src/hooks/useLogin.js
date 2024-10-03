@@ -18,6 +18,7 @@ export default function useLogin() {
         {
           method: "POST",
           credentials: "include",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },

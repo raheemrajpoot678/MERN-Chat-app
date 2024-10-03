@@ -24,6 +24,7 @@ export default function useSignup() {
         {
           method: "POST",
           credentials: "include",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
