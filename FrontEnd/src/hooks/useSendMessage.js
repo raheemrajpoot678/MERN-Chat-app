@@ -13,7 +13,7 @@ export default function useSendMessage() {
     setLoading(true);
     try {
       const res = await fetch(
-        `/api/messages/send/${selectedConversation?._id}`,
+        `https://mern-chat-app-api-v2.vercel.app/api/messages/send/${selectedConversation?._id}`,
         {
           method: "POST",
           credentials: "include",

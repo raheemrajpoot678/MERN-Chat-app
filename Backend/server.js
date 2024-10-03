@@ -4,7 +4,6 @@ import path from "path";
 import "colors";
 import cookieParser from "cookie-parser";
 
-
 import authRouter from "./routes/auth.routes.js";
 import messagesRouter from "./routes/message.routes.js";
 import userRouter from "./routes/user.routes.js";
@@ -16,27 +15,18 @@ configDotenv();
 
 const __dirname = path.resolve();
 
-
 app.use(express.json());
 app.use(cookieParser());
-// app.use(
-//   cors({
-//     origin: ["https://mern-chat-app-frontend-fawn.vercel.app"], // Allow only your frontend
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true, // Allow credentials (cookies, authorization headers)
-//   })
-// );
-
 app.use(
   cors({
-    origin: "*", // Allow all origins
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
-    credentials: true, // Allow credentials (cookies, authorization headers)
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
-
 
 // Set up routes
 app.use("/api/auth", authRouter);

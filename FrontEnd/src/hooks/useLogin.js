@@ -13,17 +13,20 @@ export default function useLogin() {
     setLoading(true);
     // sign in logic goes here
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
+      const res = await fetch(
+        "https://mern-chat-app-api-v2.vercel.app/api/auth/login",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        }
+      );
       const data = await res.json();
 
       if (data.status === "fail") throw new Error(data.message);

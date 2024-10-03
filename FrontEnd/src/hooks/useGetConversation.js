@@ -7,14 +7,17 @@ export default function () {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/users", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+        const res = await fetch(
+          "https://mern-chat-app-api-v2.vercel.app/api/users",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
 
-          credentials: "include",
-        });
+            credentials: "include",
+          }
+        );
         const data = await res.json();
         setConversations(data);
       } catch (error) {
