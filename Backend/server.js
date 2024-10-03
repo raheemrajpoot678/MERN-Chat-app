@@ -17,8 +17,13 @@ configDotenv();
 
 const __dirname = path.resolve();
 
-// Remove CORS middleware
-// app.use(cors());
+app.use(
+  cors({
+    origin: "*", // Allow all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
+    credentials: true, // Allow credentials (cookies, authorization headers)
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -27,8 +32,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/messages", messagesRouter);
 app.use("/api/users", userRouter);
 
-// Enable pre-flight across-the-board is no longer needed
-// app.options("*", cors());
+app.options("*", cors());
 
 app.use(globalErrorController);
 
