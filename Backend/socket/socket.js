@@ -5,13 +5,7 @@ import { Server } from "socket.io";
 const app = expess();
 const server = createServer(app);
 
-const io = new Server(server, {
-  cors:{
-    origin: ["https://mern-chat-app-frontend-fawn.vercel.app"], // Allow only your frontend
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,  // Allow credentials (cookies, authorization headers)
-  }
-});
+const io = new Server(server);
 
 let userScoketMap = {};
 
