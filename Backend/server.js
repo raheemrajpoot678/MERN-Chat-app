@@ -3,7 +3,8 @@ import { configDotenv } from "dotenv";
 import path from "path";
 import "colors";
 import cookieParser from "cookie-parser";
-import cors from "cors";
+// Remove the cors import
+// import cors from "cors";
 
 import authRouter from "./routes/auth.routes.js";
 import messagesRouter from "./routes/message.routes.js";
@@ -16,13 +17,18 @@ configDotenv();
 
 const __dirname = path.resolve();
 
-app.use(cors());
+// Remove CORS middleware
+// app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
+// Set up routes
 app.use("/api/auth", authRouter);
 app.use("/api/messages", messagesRouter);
 app.use("/api/users", userRouter);
+
+// Enable pre-flight across-the-board is no longer needed
+// app.options("*", cors());
 
 app.use(globalErrorController);
 
