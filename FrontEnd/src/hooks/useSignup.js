@@ -36,13 +36,20 @@ export default function useSignup() {
           }),
         }
       );
-      const data = await res.json();
 
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Something went wrong");
+      }
+
+      const data = await res.json();
       if (data.status === "fail") throw new Error(data.message);
+
       toast({
         title: "Success",
         description: data.message,
       });
+
       localStorage.setItem("chat-user", JSON.stringify(data.data));
       setUser(data.data);
       navigate("/");
