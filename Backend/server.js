@@ -3,7 +3,7 @@ import { configDotenv } from "dotenv";
 import "colors";
 import cookieParser from "cookie-parser";
 
-import cors from "cors";
+// import cors from "cors";
 
 import authRouter from "./routes/auth.routes.js";
 import messagesRouter from "./routes/message.routes.js";
@@ -16,7 +16,24 @@ configDotenv();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://mern-chat-app-frontend-fawn.vercel.app"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  // Handle preflight OPTIONS request
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204); // No Content
+  }
+
+  next();
+});
+
+// app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser());
