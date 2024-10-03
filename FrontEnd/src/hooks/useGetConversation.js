@@ -1,8 +1,11 @@
+import { error } from "console";
 import React, { useEffect, useState } from "react";
+import { useToast } from "./use-toast";
 
 export default function () {
   const [loading, setLoading] = useState(false);
   const [conversations, setConversations] = useState([]);
+  const { toast } = useToast();
   useEffect(() => {
     const getConversations = async () => {
       setLoading(true);
@@ -19,8 +22,13 @@ export default function () {
           }
         );
         const data = await res.json();
+        if (data.error) throw new Error(data.message);
         setConversations(data);
       } catch (error) {
+        toast({
+          title: "Fail",
+          description: error.message,
+        });
       } finally {
         setLoading(false);
       }

@@ -23,7 +23,8 @@ export default function useLogout() {
       );
       const data = await res.json();
 
-      if (data.status === "fail") throw new Error(data.message);
+      if (data.error) throw new Error(data.message);
+
       toast({
         title: "Success",
         description: data.message,

@@ -24,6 +24,7 @@ export default function useSendMessage() {
         }
       );
       const data = await res.json();
+      if (data.error) throw new Error(data.message);
       setMessages([...messages, data]);
       setMessage("");
     } catch (error) {
