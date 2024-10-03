@@ -11,16 +11,13 @@ export default function useGetMessages() {
     async function getMessages() {
       setLoading(true);
       try {
-        const res = await fetch(
-          `https://mern-chat-app-api-v2.vercel.app/api/messages/${selectedConversation._id}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            credentials: "include",
-          }
-        );
+        const res = await fetch(`/api/messages/${selectedConversation._id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
         const data = await res.json();
         setMessages(data);
       } catch (error) {
