@@ -1,8 +1,9 @@
 import express from "express";
 import { configDotenv } from "dotenv";
-import path from "path";
 import "colors";
 import cookieParser from "cookie-parser";
+
+import cors from "cors";
 
 import authRouter from "./routes/auth.routes.js";
 import messagesRouter from "./routes/message.routes.js";
