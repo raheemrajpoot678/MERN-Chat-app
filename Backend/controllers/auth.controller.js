@@ -22,7 +22,7 @@ export const signup = catchAsync(async (req, res, next) => {
     password,
     passwordConfirm,
   });
-
+////////
   const token = generateTokenAndSetCookie(newUser._id, res);
   newUser.password = undefined;
   res.json({
